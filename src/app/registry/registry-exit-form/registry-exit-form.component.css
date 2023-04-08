@@ -1,0 +1,141 @@
+.role-selector{
+    padding: 4px;
+    font-size: 16px;
+    border-radius: 5px;
+    border-width: 1.5px;
+    border-style: solid;
+    border-color: #F55984;
+    background-color: #fff;
+    color: #333;
+    width: 53%;
+    margin-top: 5px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+  }
+  
+  .role-option{
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    text-align: center;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    overflow: hidden;
+  }
+  
+  .registry-entry-container{
+      border: 2px solid #EA0F47;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 5%;
+      width: 50%;
+      padding: 2%;
+      border-radius: 20px;
+      margin-bottom: 3%;
+  }
+  
+  .registry-entry-form{
+      padding: 10px;
+      padding-top: 4%;
+      padding-bottom: 4%;
+      margin-left: auto;
+      margin-right: auto;
+      width: 60%;
+      text-align: center;
+  }
+  
+  .inputField{
+      padding: 5px;
+      border-radius: 5px;
+      border: 1.5px solid #F55984;
+      margin-bottom: 20px;
+      margin-top: 4px;
+      text-align: center;
+      font-family: 'Be Vietnam Pro', sans-serif;
+      font-size: 12.5px;
+      width: 50%;
+  }
+  
+  .form-submit{
+      all: unset;
+      margin-top: 4%;
+      padding: 10px 14px 10px 14px;
+      color: white;
+      background-color: black;
+      border-radius: 8px;
+      width: 30%;
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 13px;
+      transition: background-color 0.2s;
+  }
+  
+  .form-submit:hover:enabled{
+    background-color: #EA0F47;
+  }
+  
+  .form-submit:disabled{
+    background-color: #566573;
+  }
+  
+  .label{
+    font-family: 'Comfortaa', cursive;
+    font-size: 13px;
+    color: #F55984;
+  }
+  
+  .error-holder{
+    position: relative;
+    /* border: 1px solid black; */
+    overflow: auto;
+    margin-top: -3%;
+    margin-bottom: 3%;
+    width: 55%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .error{
+    color: red;
+    font-size: 12px;
+    text-align: left;
+    /* border: 1px solid black; */
+    margin-left: 4%;
+    font-family: 'Jost', sans-serif;
+  }
+
+  .message-container{
+    position: fixed;
+    right: 2%;
+    top: 3%;
+    padding: 20px 30px 20px 30px;
+    background-color: #BA1348;
+    border-radius: 12px;
+    text-align: left;
+    color: white;
+    width: 15%;
+    font-size: 14px;
+    font-family: 'Urbanist', sans-serif;
+  }
+
+  .message-container.success{
+    background-color: #0E6655;
+  }
+  
+  .text-container{
+    margin-left: 4px;
+  }
+  
+  .bi.bi-circle-fill{
+    position: absolute; 
+    color: white; 
+    font-size: 16px; 
+    right: 3%; 
+    top: 50%; 
+    transform: translateY(-50%); 
+  }
+  
+  .bi.bi-circle-fill:hover{
+    color: #DA0B4D;
+  }

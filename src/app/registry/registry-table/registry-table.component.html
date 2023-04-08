@@ -1,0 +1,29 @@
+
+<div style="width: 14%; text-align: center; font-size: 20px; font-family: sans-serif; margin-top: 4.5%; margin-bottom: -1%; margin-left: auto; margin-right: auto; padding: 10px 20px 10px 20px; color: white; font-family: 'Outfit', sans-serif; font-weight: bolder; background-color: #0B7B8A; border-radius: 22px;">
+    Registry table
+</div>
+
+<div [hidden]="!canShowMessage" class="message-container">
+    <span class="bi bi-circle-fill" (click)="canShowMessage=false"></span>
+    <div *ngIf="canShowMessage" class="text-container">Unexpected error occured</div>
+</div>
+
+<div class="registry-table-container">
+    <table>
+        <tr>
+            <th>SI.No</th>
+            <th style="width: max-content;">Name</th>
+            <th>Identity.No</th>
+            <th>Entry time</th>
+            <th>Exit time</th>
+        </tr>
+        <tr *ngFor="let data of entryData;let i=index">
+            <td>{{i+1}}</td>
+            <td>{{data.personnelName}}</td>
+            <td>{{data.personnelIdentityNo}}</td>
+            <td>{{data.entryTime}}</td>
+            <td>{{data.exitTime}}</td>
+        </tr>
+    </table>
+</div>
+

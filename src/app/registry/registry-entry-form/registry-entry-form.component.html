@@ -1,0 +1,60 @@
+
+<div style="width: 14%; text-align: center; font-size: 20px; font-family: sans-serif; margin-top: 4.5%; margin-bottom: -1%; margin-left: auto; margin-right: auto; padding: 10px 20px 10px 20px; color: white; font-family: 'Outfit', sans-serif; font-weight: bolder; background-color: #0E6655; border-radius: 22px;">
+    Entry form
+</div>
+
+<div [hidden]="!canShowMessage&&!isSuccess" class="message-container" [class]="isSuccess?'success':''">
+    <span class="bi bi-circle-fill" (click)="canShowMessage=false;isSuccess=false"></span>
+    <div *ngIf="isSuccess" class="text-container">Entry marked successfully</div>
+    <div *ngIf="registryEntryForm.errors?.['unknownError']" class="text-container">Unexpected error occured</div>
+    <div *ngIf="registryEntryForm.errors?.['entryAlreadyMarked']" class="text-container">Entry already marked</div>
+</div>
+
+<div class="registry-entry-container">
+
+    <form [formGroup]="registryEntryForm" (ngSubmit)="onSubmit(nameHolder,emailHolder,identityNoHolder,roleHolder)" autocomplete="off" class="registry-entry-form">
+
+        <!-- <div style="margin-left: auto; margin-right: auto; text-align: center;"> -->
+
+            <label for="name" class="label">Name</label><br>
+            <input formControlName="name" #nameHolder type="text" name="name" id="name" class="inputField" [ngStyle]="{'border-color':(name.errors?.['required']||name.errors?.['minlength']||name.errors?.['maxlength'])&&name.touched?'red':'#0E6655'}"><br>
+            <div *ngIf="name.touched||name.dirty" class="error-holder">
+                <div *ngIf="name.errors?.['required']" class="error">*Required</div>
+                <div *ngIf="name.errors?.['minlength']" class="error">*Name must atleast of {{name.errors?.['minlength'].requiredLength}} letters long</div>
+                <div *ngIf="name.errors?.['maxlength']" class="error">*Name must atmost of {{name.errors?.['maxlength'].requiredLength}} letters long</div>
+            </div>
+    
+            <label for="email" class="label">Email</label><br>
+            <input formControlName="email" #emailHolder type="text" name="email" id="email" class="inputField" [ngStyle]="{'border-color':(email.errors?.['required']||email.errors?.['emailValidationError'])&&email.touched?'red':'#0E6655'}"><br>
+            <div *ngIf="email.touched||email.dirty" class="error-holder">
+                <div *ngIf="email.errors?.['required']" class="error">*Required</div>
+            </div>
+            <div *ngIf="email.touched&&email.dirty" class="error-holder">
+                <div *ngIf="email.errors?.['emailValidationError']" class="error">*Invalid email</div>
+            </div>
+
+            <label for="identityNo" class="label">ID.No</label><br>
+            <input formControlName="identityNo" #identityNoHolder type="text" name="identityNo" id="identityNo" class="inputField" [ngStyle]="{'border-color':(identityNo.errors?.['required']||identityNo.errors?.['pattern'])&&identityNo.touched?'red':'#0E6655'}"><br>
+            <div *ngIf="identityNo.touched||identityNo.dirty" class="error-holder">
+                <div *ngIf="identityNo.errors?.['required']" class="error">*Required</div>
+            </div>
+            <div *ngIf="identityNo.touched&&identityNo.dirty" class="error-holder">
+                <div *ngIf="identityNo.errors?.['pattern']" class="error">*Invalid Identity No</div>
+            </div>
+
+            <label for="role" class="label">Personnel type</label><br>
+            <select formControlName="role" #roleHolder name="role" id="role" class="role-selector" [ngStyle]="{'border-color':role.errors?.['required']&&role.touched?'red':'#0E6655'}">
+                <option class="role-option" value="STUDENT" id="role1" [defaultSelected]="">Student</option>
+                <option class="role-option" value="EMPLOYEE" id="role2">Employee</option>
+            </select><br><br>
+            <div *ngIf="role.touched||role.dirty" class="error-holder">
+                <div *ngIf="role.errors?.['required']" class="error">*Required</div>
+            </div>
+
+            <button [disabled]="registryEntryForm.invalid" type="submit" class="form-submit">Submit</button>
+
+        <!-- </div> -->
+    
+    </form>
+
+</div>
